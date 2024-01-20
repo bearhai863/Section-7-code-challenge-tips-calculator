@@ -5,6 +5,7 @@ function Bill({ bill, updateBill }) {
 				How much was the bill ?
 				<input
 					type="text"
+                    placeholder="Bill Value"
 					value={bill}
 					onChange={(e) => {
 						updateBill(Number(e.target.value));

@@ -6,25 +6,33 @@ import React, { useState } from "react";
 export default function App() {
 	const [myTips, setMyTips] = useState(0);
 	const [frnTips, setFrnTips] = useState(0);
-	const [bill, setBill] = useState(0);
+	const [bill, setBill] = useState("");
 
 	function handleReset() {
 		setMyTips(0);
 		setFrnTips(0);
-		setBill(0);
+		setBill("");
 	}
 
 	return (
 		<div className="App">
 			<Bill bill={bill} updateBill={setBill} />
-			<Tips
-				myTips={myTips}
+			<Tips tips={myTips} updateTips={setMyTips}>
+				How did you like the service ?
+			</Tips>
+			<Tips tips={frnTips} updateTips={setFrnTips}>
+				How did your friend like the service ?
+			</Tips>
 
-				updateMyTips={setMyTips}
-				updateFrnTips={setFrnTips}
-			/>
-			<TotalCharges totalPercentTips={myTips + frnTips} bill={bill} />
-			<button onClick={handleReset}>Reset</button>
+			{bill > 0 && (
+				<>
+					<TotalCharges
+						totalPercentTips={myTips + frnTips}
+						bill={bill}
+					/>
+					<button onClick={handleReset}>Reset</button>
+				</>
+			)}
 		</div>
 	);
 }
