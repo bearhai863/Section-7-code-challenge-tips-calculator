@@ -1,17 +1,13 @@
 import React from "react";
 import Satisfaction from "./Satisfaction";
-import { useState } from "react";
 
-function Tips() {
-	const [myTips, setMyTips] = useState(0);
-	const [frnTips, setFrnTips] = useState(0);
-
+function Tips({ myTips, frnTips, updateMyTips, updateFrnTips }) {
 	return (
 		<div>
-			<Satisfaction tips={myTips} onUpdateTips={setMyTips}>
+			<Satisfaction tips={myTips} onUpdateTips={updateMyTips}>
 				How did you like the service?
 			</Satisfaction>
-			<Satisfaction tips={frnTips} onUpdateTips={setFrnTips}>
+			<Satisfaction tips={frnTips} onUpdateTips={updateFrnTips}>
 				How did your friend like the service?
 			</Satisfaction>
 		</div>

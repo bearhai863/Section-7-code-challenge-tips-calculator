@@ -1,8 +1,4 @@
-import React, { useState } from "react";
-
-function Bill() {
-	const [bill, setBill] = useState(0);
-
+function Bill({ bill, updateBill }) {
 	return (
 		<div>
 			<p>
@@ -11,7 +7,7 @@ function Bill() {
 					type="text"
 					value={bill}
 					onChange={(e) => {
-						setBill(Number(e.target.value));
+						updateBill(Number(e.target.value));
 					}}
 				/>
 			</p>
